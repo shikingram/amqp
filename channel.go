@@ -74,6 +74,10 @@ type Channel struct {
 	body    []byte
 }
 
+func (ch *Channel) Errors() chan *Error {
+	return ch.errors
+}
+
 // Constructs a new channel with the given framing rules
 func newChannel(c *Connection, id uint16) *Channel {
 	return &Channel{
